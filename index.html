@@ -1,13 +1,69 @@
 <html>
+<head>
+<style>
+
+div#play span{
+    background-color: rgb(158, 15, 34);
+}    
+</style>
+</head>
+
 
 <body>
-    <h1>Dom Play</h1>
-    <div id="myDiv"></div>
+    <link rel="stylesheet" href="style.css">
+    <h1>DOM Play Oswal Gonzalez IT121</h1>
+    <h2>This is a JavaScript example that allows you to click on one of the lines of the actor and highlights all of their lines on the page. This function also leaves the unclicked lines unhighlighted to provide better readability.</h2>
+    <h2>Below is a scene from the iconic movie starring 50 Cent: Get Rich or Die Tryin where the setting is during the day at Guy Brewer BLVD. Queens NY</h2>
+    <img src="https://m.media-amazon.com/images/M/MV5BMTI4NTE0MTU2N15BMl5BanBnXkFtZTYwNzQ1OTc2._V1_FMjpg_UX1000_.jpg" width="300" height="350" alt="movie cover for get rich or die tryin">
+    <h3>With Junebug working down the street, Marcus is in mid-sale to a Fiend as he talks to Tyrell, Antwan and Keryl.</h3>
+    <div id="play">
+        <p><span data-actor="Marcus">Marcus: I'm tellin' you man, there was mad fuckin' money on that yacht. Diamonds and gold like a fuckin' pirate ship.</span></p>
+        <p><span data-actor="Tyrell">Tyrell: Word?</span></p>
+        <p><span data-actor="Marcus">Marcus: Forget about the p**sy yo, there was bitc**s there was off the hook!</span></p>
+        <p><span data-actor="Romeo">Romeo: Sign me up for that shit.</span></p>
+        <p><span data-actor="Marcus">Marcus: 1 day we get there b. we all will.</span></p>
+        <p><span data-actor="Tyrell">Tyrell: I heard that.</span></p>
+        <p><span data-actor="Keryl">Keryl: I read about some pirate shipt crashed right off the harbor in Brooklyn.</span></p>
+        <p><span data-actor="Antwan">Antwan: Fu*k you talkin about?</span></p>
+        <p><span data-actor="Keryl">Keryl: Back in the day, a slave ship with jewels and sh*t.</span></p>
+        <p><span data-actor="Marcus">Marcus: Probably the one brought your monkey ass relatives over here.</span></p>
+        <p><span data-actor="Keryl">Keryl: Fu** you. One day Ima scuba dive and find that sh**.</span></p>
+        <p><span data-actor="Marcus">Marcus: (Points across the street) Meanwhile, there's a fiend over there wants to give you ten dollars so whyn't you go get it?</span></p>
+    </div>
     <script>
 
-        let fruits = ["pineapple", "banana", "orange"];
+    // We're using the Css descendant selector to access the spans
+    const spans = document.querySelectorAll('div#play span');
 
-        fruits.forEach(fruit)=>{alert(fruit)});
+    console.log(spans);
+
+    for(const mySpan of spans) {
+        mySpan.addEventListener("click",function(ev){
+            //alert(mySpan.dataset.actor);
+            highlightActor(mySpan.dataset.actor);
+
+
+        });
+    }
+        
+
+        function highlightActor(myActor){
+            
+
+            for(const mySpan of spans){
+
+                if(myActor == mySpan.dataset.actor){
+                    mySpan.style.backgroundColor = 'rgb(158, 15, 34)'; 
+                }else{
+                    mySpan.style.backgroundColor = 'white';
+                }
+            }
+
+
+
+
+        
+        }    
 
     </script>
 </body>
